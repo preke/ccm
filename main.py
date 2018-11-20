@@ -298,6 +298,9 @@ def test(sess, saver, data_dev, setnum=5000):
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 with tf.Session(config=config) as sess:
+    
+    print FLAGS.is_train 
+    
     if FLAGS.is_train:
         raw_vocab, data_train, data_dev, data_test = prepare_data(FLAGS.data_dir)
         vocab, embed, entity_vocab, entity_embed, relation_vocab, relation_embed, entity_relation_embed = build_vocab(FLAGS.data_dir, raw_vocab)
